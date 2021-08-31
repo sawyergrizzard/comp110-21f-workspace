@@ -1,10 +1,10 @@
 """Numeric operators program."""
-_author_: str("730245854") 
+__author__ = "730245854" 
 
 left: int = int(input("Left-hand side: "))
 right: int = int(input("Right-hand side: "))
 exponent: int = left ** right
-division: int = left / right  
+division: int = int(left / right) 
 integer_division: int = left // right
 remainder_modulo: int = left % right
 print(str(left) + " ** " + str(right) + " is " + str(exponent))
