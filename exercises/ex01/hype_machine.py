@@ -1,5 +1,5 @@
-"""Hype machine program"""
-author: str(730245854)
+"""Hype machine program."""
+author: str("730245854")
 
 name: str = input("What is your name? ")
 print("What's good fam, " + name + " is the man!")

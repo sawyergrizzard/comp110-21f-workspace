@@ -1,5 +1,5 @@
-"""Numeric operators program"""
-_author_: str(730245854) 
+"""Numeric operators program."""
+_author_: str("730245854") 
 
 left: int = int(input("Left-hand side: "))
 right: int = int(input("Right-hand side: "))
