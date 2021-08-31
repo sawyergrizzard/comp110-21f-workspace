@@ -1,5 +1,5 @@
 """Relational operators program."""
-author: str("730245854")
+__author__ = "730245854"
 
 left: int = int(input("Left-hand side: "))
 right: int = int(input("Right-hand side: "))
