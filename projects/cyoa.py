@@ -2,16 +2,21 @@
 
 __author__ = "730245854"
 
-player: str = input("What is your name? ")
+player: str
+points: int
 
 
 def greet() -> None:
     """Welcomes player."""
+    global player
+    player = input("What is your name? ")
     print(f"Welcome to the Treasure Hunt {player}! If you gain 3 points, you win! Find the treasure...")
 
 
 def room1() -> None: 
     """Search Room 1."""
+    global player
+    global points
     points = 1
     print(f"You have {points} point!")
     room1: str = input(f"Ok {player}, the booty is getting closer. Enter a, b, or c: Would you like to (a) Look under the bed, (b) Look in the dresser drawer, or (c) Exit game? ")
@@ -32,6 +37,8 @@ def room1() -> None:
 
 def room2() -> None:
     """Search Room 2.""" 
+    global player
+    global points
     points = 1
     print(f"You have {points} points!")
     room2: str = input(f"Ok {player}, the booty could be here somewhere. Enter a, b, or c: Would you like to (a) Look behind the couch, (b) Look on the bookshelf, or (c) Exit game? ")
@@ -55,6 +62,8 @@ def room2() -> None:
 
 def bed() -> None: 
     """Search under bed."""
+    global player 
+    global points
     points = 2
     print(f"You have {points} points!")
     bed: str = input(f"{player}, you found items under the bed! Enter a, b, or c: Would you like to (a) Look in the shoebox, (b) Look in the mysterious chest, or (c) Exit game? ")
@@ -79,6 +88,8 @@ def bed() -> None:
 
 def dresser() -> None:
     """Search in dresser drawer."""
+    global player
+    global points
     points = 2
     print(f"You have {points} points!")
     print("Sorry, you did not find the treasure. Better luck next time!")
@@ -86,14 +97,13 @@ def dresser() -> None:
 
 def treasure(a: int) -> int:
     """Treasure found.""" 
-    #make use of the player name in some output and have the user make at least one interaction choice that results in the points parameter (local variable) changing
-    #don't forget to include an emoji!
-    #include element of randomness
     return a 
 
 
 def main() -> None:
     """Starts function."""
+    global player
+    global points
     points: int = 0 
     
     greet()
