@@ -11,11 +11,11 @@ heels: int = int(num_choice % 7)
 if heels != tar == int(0):
     print("TAR") 
 
-    if tar != heels == int(0):
-        print("HEELS")
+if tar != heels == int(0):
+    print("HEELS")
 
-    if tar == heels == int(0):
-        print("TAR HEELS")
+if tar == heels == int(0):
+    print("TAR HEELS")
 
-else: 
+if tar != int(0) and heels != int(0):  
     print("CAROLINA")
