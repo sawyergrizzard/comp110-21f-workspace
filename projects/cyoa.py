@@ -4,6 +4,7 @@ __author__ = "730245854"
 
 player: str
 points: int
+NAMED_CONSTANT: str = "\U0001F3C5"  
 
 
 def greet() -> None:
@@ -17,8 +18,8 @@ def room1() -> None:
     """Search Room 1."""
     global player
     global points
-    points = 1
-    print(f"You have {points} point!")
+    points += 1
+    print(f"You have {points} point! {NAMED_CONSTANT}")
     room1: str = input(f"Ok {player}, the booty is getting closer. Enter a, b, or c: Would you like to (a) Look under the bed, (b) Look in the dresser drawer, or (c) Exit game? ")
     answered = False
 
@@ -39,20 +40,20 @@ def room2() -> None:
     """Search Room 2.""" 
     global player
     global points
-    points = 1
-    print(f"You have {points} points!")
+    points += 1
+    print(f"You have {points} points! {NAMED_CONSTANT}")
     room2: str = input(f"Ok {player}, the booty could be here somewhere. Enter a, b, or c: Would you like to (a) Look behind the couch, (b) Look on the bookshelf, or (c) Exit game? ")
     answered = False
 
     while not answered:
 
-        points = 2
+        points += 1
         if room2 == str("a"):
-            print(f"You have {points} points!")
+            print(f"You have {points} points! {NAMED_CONSTANT}")
             print("Sorry, you did not find the treasure. Better luck next time!")
             answered = True 
         if room2 == str("b"):
-            print(f"You have {points} points!")
+            print(f"You have {points} points! {NAMED_CONSTANT}")
             print("Sorry, you did not find the treasure. Better luck next time!")
             answered = True
         if room2 == str("c"):
@@ -62,10 +63,10 @@ def room2() -> None:
 
 def bed() -> None: 
     """Search under bed."""
-    global player 
-    global points
-    points = 2
-    print(f"You have {points} points!")
+    global player
+    global points 
+    points += 1
+    print(f"You have {points} points! {NAMED_CONSTANT}")
     bed: str = input(f"{player}, you found items under the bed! Enter a, b, or c: Would you like to (a) Look in the shoebox, (b) Look in the mysterious chest, or (c) Exit game? ")
     answered = False
 
@@ -74,7 +75,7 @@ def bed() -> None:
         if bed == str("a"):
             y: int = 3
             z: int = treasure(y)
-            print(f"You have {z} points!")
+            print(f"You have {z} points! {NAMED_CONSTANT}")
             print(f"Ahoy matey, you found the treasure! Use it wisely {player}!")
             answered = True
         if bed == str("b"):
@@ -90,8 +91,8 @@ def dresser() -> None:
     """Search in dresser drawer."""
     global player
     global points
-    points = 2
-    print(f"You have {points} points!")
+    points += 1
+    print(f"You have {points} points! {NAMED_CONSTANT}")
     print("Sorry, you did not find the treasure. Better luck next time!")
 
 
@@ -104,7 +105,7 @@ def main() -> None:
     """Starts function."""
     global player
     global points
-    points: int = 0 
+    points = 0 
     
     greet()
 
