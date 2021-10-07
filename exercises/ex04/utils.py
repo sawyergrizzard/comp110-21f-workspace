@@ -5,16 +5,18 @@ __author__ = "730245854"
 
 # TODO: Implement your functions here.
 def main() -> None:
-    group: list[int] = [1, 1, 1, 1, 1, 1, 1, 1]
+    """Results of functions."""
+    group: list[int] = []
     print(all(group, 1))
     first: list[int] = [1, 1, 1, 1]
-    second: list[int] = [1, 1, 1, 1, 1, 1, 1]
+    second: list[int] = []
     print(is_equal(first, second))
     s: list[int] = [1, 1, 1, 1]
     print(max(s))
 
 
 def all(xs: list[int], x: int) -> bool: 
+    """Identify if list items are the same."""
     i: int = 0
 
     while i < len(xs): 
@@ -25,6 +27,7 @@ def all(xs: list[int], x: int) -> bool:
 
 
 def is_equal(a: list[int], b: list[int]) -> bool:
+    """Identify if lists are the same."""
     i: int = 0
 
     while i < len(a):
@@ -37,24 +40,15 @@ def is_equal(a: list[int], b: list[int]) -> bool:
 
 
 def max(input: list[int]) -> int:
+    """Identify largest number in a list."""
     if len(input) == 0:
         raise ValueError("max() arg is an empty List")
-    
-    #  z: int = 0
-    #  y: int = len(input) - 1
-
+  
     max = -9999999999999
 
     for val in input:
         if val > max:
             max = val
-
-    # while len(input) > 1:
-    #     if input[z] > input[y]: 
-    #         input.pop(input[y])
-    #     if input[z] <= input[y]:
-    #         input.pop(input[z])
-    # return input[z]
 
     return max
 
