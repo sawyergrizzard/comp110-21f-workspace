@@ -4,6 +4,7 @@ __author__ = "730245854"
 
 
 def only_evens(xs: list[int]) -> list[int]: 
+    """Returns a list containing only even elements."""
     i: int = 0
     while i < len(xs):
         if xs[i] % 2 != 0: 
@@ -14,24 +15,24 @@ def only_evens(xs: list[int]) -> list[int]:
 
 
 def sub(a_list: list[int], start: int, end: int) -> list[int]:
+    """Returns list items between two indices."""
     i: list[int] = a_list
     if len(i) == 0:
-        return i
-    while 0 < end < len(i):
+        return []
+    while end < len(i):
+        if end <= 0:
+            return []
         i.pop(end)
     while start > 0:
         if len(i) < start:
-            return i
+            return []
         i.pop(start - 1)
         start -= 1
     return i
-    # while len(a_list) > (end - start):
-    #     a_list.pop(0)
-    #     a_list.pop(len(a_list) - 1)
-    # return a_list
 
 
-def concat(a: list[int], b: list[int]) -> list[int]: 
+def concat(a: list[int], b: list[int]) -> list[int]:
+    """Combines two lists into one list.""" 
     while 0 < len(b):
         a.append(b[0])
         b.pop(0)
