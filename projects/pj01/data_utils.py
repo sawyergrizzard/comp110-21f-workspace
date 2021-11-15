@@ -81,6 +81,6 @@ def count(list: list[str]) -> dict[str, int]:
     for item in list:
         if item in result:
             result[item] += 1
-            if item not in result:
-                result[item] = 1
+        else:
+            result[item] = 1
     return result
