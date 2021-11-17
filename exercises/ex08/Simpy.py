@@ -8,6 +8,7 @@ __author__ = "730245854"
 
 
 class Simpy:
+    """Establishing a new class called Simpy."""
     values: list[float]
 
     def __init__(self, values: list[float]):
@@ -20,37 +21,26 @@ class Simpy:
 
     def fill(self, value: float, times: int) -> None:
         """Fill our values array by mutating object called on."""
-        # Start with an empty values list
         self.values = []
-        # Loop for 'times' number of times
         i: int = 0
         while i < times:
-        #   append value parameter to the values array
-            self.values.append
+            self.values.append(value)
             i += 1
 
     def arange(self, start: float, stop: float, step: float = 1.0) -> None:
         """Fill in a range of values."""
-        # Start an empty values list
         self.values = []
-        # Be sure step is not 0.0 by asserting
         assert step != 0.0
-        # When step is positive:
         if step > 0.0:
-            # Initialize next value to start
             next_value: float = start 
-            # While next value is less than stop value
             while next_value < stop: 
-                # Add next value to values list
                 self.values.append(next_value)
-                # Update next value by adding the step to it
                 next_value += step
         else:
             next_value: float = start
-            while next_value < stop:
+            while next_value > stop:
                 self.values.append(next_value)
                 next_value += step
-
 
     def sum(self) -> float:
         """Delegate this algo to the built-in sum function."""
@@ -133,3 +123,14 @@ class Simpy:
                     result.append(False)
                     i += 1
         return result
+
+    def __getitem__(self, rhs: Union[int, list[bool]]) -> Union[float, Simpy]:
+        """Operator overload for adding subscription notation."""
+        if rhs == 0:
+            return self.values[0]
+        elif rhs == 1:
+            return self.values[1]
+        elif rhs == 2:
+            return self.values[2]
+        else:
+            raise IndexError
