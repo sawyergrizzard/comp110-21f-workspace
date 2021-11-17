@@ -45,3 +45,91 @@ class Simpy:
                 self.values.append(next_value)
                 # Update next value by adding the step to it
                 next_value += step
+        else:
+            next_value: float = start
+            while next_value < stop:
+                self.values.append(next_value)
+                next_value += step
+
+
+    def sum(self) -> float:
+        """Delegate this algo to the built-in sum function."""
+        return sum(self.values)
+
+    def __add__(self, rhs: Union[float, Simpy]) -> Simpy:
+        """Operator overload for addition."""
+        result: Simpy = Simpy([])
+        if isinstance(rhs, float):
+            for value in self.values:
+                result.values.append(value + rhs)
+        else:
+            assert len(self.values) == len(rhs.values)
+            i: int = 0
+            while i < len(self.values):
+                result.values.append(self.values[i] + rhs.values[i])
+                i += 1 
+        return result
+
+    def __pow__(self, rhs: Union[float, Simpy]) -> Simpy:
+        """Operator overload for exponents."""
+        result: Simpy = Simpy([])
+        if isinstance(rhs, float):
+            for value in self.values:
+                result.values.append(value ** rhs)
+        else:
+            assert len(self.values) == len(rhs.values)
+            i: int = 0
+            while i < len(self.values):
+                result.values.append(self.values[i] ** rhs.values[i])
+                i += 1 
+        return result
+
+    def __eq__(self, rhs: Union[float, Simpy]) -> list[bool]:
+        """Operator overload for a mask that determines equality of values for self and rhs."""
+        result: list[bool] = []
+        if isinstance(rhs, Simpy):
+            i: int = 0
+            x: int = len(self.values)
+            while i < x:
+                if self.values[i] == rhs.values[i]:
+                    result.append(True)
+                    i += 1
+                elif self.values[i] != rhs.values[i]:
+                    result.append(False)
+                    i += 1
+        elif isinstance(rhs, float):
+            i: int = 0
+            x: int = len(self.values)
+            while i < x:
+                if self.values[i] == rhs:
+                    result.append(True)
+                    i += 1
+                elif self.values[i] != rhs:
+                    result.append(False)
+                    i += 1
+        return result
+
+    def __gt__(self, rhs: Union[float, Simpy]) -> list[bool]:
+        """Operator overload for a mask that determines if self is greater than rhs."""
+        result: list[bool] = []
+        if isinstance(rhs, Simpy):
+            i: int = 0
+            x: int = len(self.values)
+            while i < x:
+                if self.values[i] > rhs.values[i]:
+                    result.append(True)
+                    i += 1
+                elif self.values[i] <= rhs.values[i]: 
+                    result.append(False)
+                    i += 1
+        elif isinstance(rhs, float):
+            i: int = 0
+            x: int = len(self.values)
+            while i < x:
+                if self.values[i] > rhs:
+                    result.append(True)
+                    i += 1
+                elif self.values[i] <= rhs:
+                    result.append(False)
+                    i += 1
+        return result
